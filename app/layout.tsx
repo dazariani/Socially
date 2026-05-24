@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import Navbar from "@/components/navbar/Navbar"
 import Container from "@/components/global/Container"
+import Sidebar from "@/components/sidebar/Sidebar"
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,11 +52,14 @@ export default function RootLayout({
             <main className='py-8'>
               <Container>
                 <div className='grid grid-cols-1 lg:grid-cols-12 gap-6'>
-                  <div className='hidden lg:block lg:col-span-3'>sidebar</div>
+                  <div className='hidden lg:block lg:col-span-3'>
+                    <Sidebar />
+                  </div>
                   <div className='lg:col-span-9'>{children}</div>
                 </div>
               </Container>
             </main>
+            <Toaster />
           </ThemeProvider>
         </ClerkProvider>
       </body>

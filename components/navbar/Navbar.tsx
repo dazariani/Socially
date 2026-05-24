@@ -4,11 +4,15 @@ import { ModeToggle } from "@/lib/ModeToggle"
 import DesktopNavlist from "./DesktopNavlist"
 import { Separator } from "@/components/ui/separator"
 import MobileNavlist from "./MobileNavlist"
+import { currentUser } from "@clerk/nextjs/server"
+import { syncUser } from "@/actions/user.action"
 
-function Navbar() {
+async function Navbar() {
+  const user = await currentUser()
+  if (user) await syncUser()
   return (
     <>
-      <Container className='w-full'>
+      <Container className='w-full sticky top-0'>
         <section className='flex justify-between items-center py-6'>
           <div>
             <Link href='/'>

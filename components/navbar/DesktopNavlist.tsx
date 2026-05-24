@@ -19,7 +19,12 @@ async function DesktopNavlist() {
             <CiBellOn size={20} />
             <p>Notifications</p>
           </Link>
-          <Link href='/profile' className='flex gap-1'>
+          <Link
+            href={`/profile/${
+              user.username ?? user.emailAddresses[0].emailAddress.split("@")[0]
+            }`}
+            className='flex gap-1'
+          >
             <CiUser size={20} />
             <p>Profile</p>
           </Link>

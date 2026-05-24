@@ -23,11 +23,11 @@ async function MobileNavlist() {
   return (
     <section className='block md:hidden'>
       <Sheet>
-        <SheetTrigger asChild>
-          <Button variant='outline'>
+        <Button variant='outline' asChild>
+          <SheetTrigger>
             <IoMenu />
-          </Button>
-        </SheetTrigger>
+          </SheetTrigger>
+        </Button>
         <SheetContent>
           <SheetHeader className='flex items-center'>
             <SheetTitle>Menu</SheetTitle>
